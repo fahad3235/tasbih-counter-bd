@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasbih Counter BD — Digital Dhikr Counter</title>
+<meta name="description" content="Offline bilingual digital tasbih counter: 8 preset dhikrs, custom dhikrs, targets, cycles, daily totals and streaks.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>Tasbih Counter BD</h1>
+    <p id="tagline">Digital dhikr counter</p>
+  </div>
+  <button id="langBtn" class="lang-btn" type="button">বাংলা</button>
+</header>
+
+<main>
+  <section class="counter-card" aria-label="Counter">
+    <p id="dhikrArabic" class="arabic">سُبْحَانَ الله</p>
+    <p id="dhikrName" class="dhikr-name">SubhanAllah</p>
+    <p id="dhikrMeaning" class="meaning">Glory be to Allah</p>
+    <button id="tapBtn" class="tap-btn" type="button" aria-label="Count one">
+      <span id="countNum" class="count-num">0</span>
+      <span class="count-of">/ <span id="targetNum">33</span></span>
+    </button>
+    <p id="tapHint" class="hint">Tap the circle or press Space</p>
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+      <div id="progressFill" class="progress-fill" style="width:0%"></div>
+    </div>
+    <p class="progress-pct"><span id="progressPct">0%</span></p>
+    <p id="completeMsg" class="complete-msg" style="display:none"></p>
+    <div class="stats">
+      <div><span id="cyclesLabel">Cycles done</span><strong id="cyclesNum">0</strong></div>
+      <div><span id="todayLabel">Today</span><strong id="todayNum">0</strong></div>
+      <div><span id="lifetimeLabel">All time</span><strong id="lifetimeNum">0</strong></div>
+      <div><span id="streakLabel">Day streak</span><strong id="streakNum">0</strong></div>
+      <div><span id="bestLabel">Best day</span><strong id="bestNum">0</strong></div>
+    </div>
+    <button id="resetBtn" class="secondary" type="button">Reset count</button>
+  </section>
+
+  <section class="card">
+    <h2><span id="targetLabel">Target</span> &amp; <span id="dhikrsLabel">Dhikrs</span></h2>
+    <div id="dhikrList" class="chip-list"></div>
+  </section>
+
+  <section class="card">
+    <h2 id="last7Label">Last 7 days</h2>
+    <div id="chart" class="chart"></div>
+    <p id="emptyNote" class="empty-note" style="display:none"></p>
+  </section>
+
+  <section class="card">
+    <h2 id="customLabel">Custom dhikr</h2>
+    <label><span id="customNameLabel">Dhikr name</span>
+      <input id="customName" type="text" maxlength="80" placeholder="e.g. Ya Rahman">
+    </label>
+    <label><span id="customTargetLabel">Target count</span>
+      <input id="customTarget" type="number" min="1" max="10000" value="33">
+    </label>
+    <button id="addBtn" type="button">Add dhikr</button>
+  </section>
+
+  <section class="card">
+    <h2 id="dataLabel">My data</h2>
+    <label><input id="soundChk" type="checkbox" checked> <span id="soundLabel">Sound on completion</span></label>
+    <label><input id="vibrateChk" type="checkbox" checked> <span id="vibrateLabel">Vibrate on completion</span></label>
+    <div class="row">
+      <button id="exportBtn" type="button">Export JSON</button>
+      <button id="importBtn" type="button" onclick="document.getElementById('importFile').click()">Import JSON</button>
+      <input id="importFile" type="file" accept="application/json,.json" hidden>
+      <button id="eraseBtn" class="danger" type="button">Erase all data</button>
+    </div>
+    <p id="formMsg" class="form-msg" role="status"></p>
+  </section>
+</main>
+
+<footer><p id="footerText"></p></footer>
+
+<script src="js/logic.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

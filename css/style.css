@@ -1,0 +1,51 @@
+:root { --green: #0b6e4f; --green-dark: #085a41; --gold: #c9a227; --bg: #f4f7f4; --card: #fff; --text: #1d2b24; --muted: #5d6f66; --danger: #b3261e; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+.topbar { background: var(--green); color: #fff; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.topbar h1 { margin: 0; font-size: 1.5rem; }
+.topbar p { margin: 4px 0 0; opacity: .9; }
+.lang-btn { background: #fff; color: var(--green-dark); border: 0; border-radius: 999px; padding: 8px 16px; font-weight: 700; cursor: pointer; min-width: 88px; }
+main { max-width: 720px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
+.card, .counter-card { background: var(--card); border-radius: 16px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.counter-card { text-align: center; }
+.arabic { font-size: 2rem; margin: 0 0 4px; direction: rtl; line-height: 1.8; }
+.dhikr-name { font-size: 1.25rem; font-weight: 700; margin: 0; }
+.meaning { color: var(--muted); margin: 4px 0 16px; }
+.tap-btn { width: 210px; height: 210px; border-radius: 50%; border: 6px solid var(--gold); background: var(--green); color: #fff; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; touch-action: manipulation; }
+.tap-btn:active { background: var(--green-dark); transform: scale(.98); }
+.count-num { font-size: 3.5rem; font-weight: 800; line-height: 1; }
+.count-of { font-size: 1.1rem; opacity: .9; }
+.hint { color: var(--muted); }
+.progress { height: 12px; background: #e3ebe6; border-radius: 999px; overflow: hidden; margin-top: 12px; }
+.progress-fill { height: 100%; background: var(--gold); transition: width .15s ease; }
+.progress-pct { font-weight: 700; margin: 6px 0; }
+.complete-msg { background: #e6f4ea; color: var(--green-dark); border-radius: 8px; padding: 10px; font-weight: 700; }
+.stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 16px 0; }
+.stats div { background: var(--bg); border-radius: 10px; padding: 10px 4px; display: flex; flex-direction: column; gap: 4px; font-size: .8rem; color: var(--muted); }
+.stats strong { font-size: 1.2rem; color: var(--text); }
+button { font-size: 1rem; }
+.secondary, .card button { background: var(--green); color: #fff; border: 0; border-radius: 10px; padding: 10px 16px; cursor: pointer; }
+.card button.danger { background: var(--danger); }
+.chip-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.dhikr-chip { background: #eef4f0; color: var(--text); border: 2px solid transparent; border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+.dhikr-chip.active { border-color: var(--green); background: #dff0e7; font-weight: 700; }
+.chip-del { color: var(--danger); font-weight: 800; margin-left: 4px; }
+.chart { display: flex; align-items: flex-end; gap: 8px; height: 130px; }
+.bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 2px; min-width: 0; }
+.bar { width: 100%; max-width: 44px; background: var(--green); border-radius: 6px 6px 0 0; min-height: 2px; }
+.bar-lab, .bar-val { font-size: .75rem; color: var(--muted); }
+label { display: block; margin: 10px 0; }
+label span { display: block; margin-bottom: 4px; font-weight: 600; }
+input[type="text"], input[type="number"] { width: 100%; padding: 10px; border: 1px solid #c7d4cc; border-radius: 10px; font-size: 1rem; }
+input[type="checkbox"] { width: auto; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.form-msg { color: var(--green-dark); font-weight: 600; min-height: 1.2em; }
+.empty-note { color: var(--muted); }
+footer { max-width: 720px; margin: 0 auto; padding: 0 16px 24px; color: var(--muted); font-size: .85rem; }
+@media (max-width: 390px) {
+  .tap-btn { width: 180px; height: 180px; }
+  .count-num { font-size: 2.8rem; }
+  .stats { grid-template-columns: repeat(3, 1fr); }
+  .arabic { font-size: 1.6rem; }
+  main { padding: 12px; }
+}
